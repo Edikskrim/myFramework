@@ -10,9 +10,11 @@ namespace app\controllers;
 
 class MainController extends AppController
 	{
-
 		public function indexAction(){
-				echo __METHOD__;
-				$this->setMeta('111','22');
+				$this->setMeta('Главная страница','Описание', 'Ключивики');
+				$name = 'Ed';
+				$age = 30;
+				$names = ['aaaa','bbbb'];
+				$this->set(compact('name','age','names'));
 		}
 	}

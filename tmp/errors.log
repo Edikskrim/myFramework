@@ -187,3 +187,12 @@
 [2019-05-30 19:36:31] 
 			Текст ошибки: Метод app\controllers\MainController::viewAction не найдена | Файл: C:\OSPanel\domains\ishop2.loc\vendor\ishop\core\Router.php| Строка:41
 --------------
+[2019-06-10 19:39:44] 
+			Текст ошибки: Страница не найдена | Файл: /Applications/MAMP/htdocs/myFramework/vendor/ishop/core/Router.php| Строка:48
+--------------
+[2019-06-10 20:11:44] 
+			Текст ошибки: Не найден шаблон (/Applications/MAMP/htdocs/myFramework/app/views/loyouts/default.php) | Файл: /Applications/MAMP/htdocs/myFramework/vendor/ishop/core/base/View.php| Строка:54
+--------------
+[2019-06-10 20:24:01] 
+			Текст ошибки: Call to undefined method ishop\base\View::getMeta() | Файл: /Applications/MAMP/htdocs/myFramework/app/views/layouts/default.php| Строка:5
+--------------

@@ -9,6 +9,8 @@
 namespace ishop\base;
 
 
+use ishop\App;
+
 class View
 	{
 		public $route;
@@ -34,4 +36,37 @@ class View
 					$this->layout = $layout ?: LAYOUT;
 				}
 			}
+
+			public function render($data){
+		        if(is_array($data)) extract($data);
+                $viewFile = APP."/views/{$this->prefix}{$this->controller}/{$this->view}.php";
+                if(is_file($viewFile)){
+                    ob_start();
+                    require_once $viewFile;
+                    $content = ob_get_clean();
+                }else{
+                    throw new \Exception("Не найден вид ($viewFile)", 500);
+                }
+                if(false !== $this->layout){
+                    $layoutFile = APP."/views/layouts/{$this->layout}.php";
+                    if(is_file($layoutFile)){
+                        require_once $layoutFile;
+                    }else{
+                        throw new \Exception("Не найден шаблон ($layoutFile)", 500);
+                    }
+                }
+            }
+
+            public function getTitle(){
+                $output = '<title>'.$this->meta['title'].'</title>';
+                return $output;
+            }
+            public function getDescription(){
+                $output = '<meta name="description" content="'.$this->meta['description'].'">';
+                return $output;
+            }
+            public function getKeywords(){
+                $output = '<meta name="keywords" content="'.$this->meta['keywords'].'">';
+                return $output;
+            }
 	}
